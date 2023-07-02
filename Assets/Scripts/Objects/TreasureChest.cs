@@ -42,8 +42,8 @@ public class TreasureChest : Interactable
         //
         dialogBox.SetActive(true);
         dialogText.text = contents.itemDescript;
-        Debug.Log(contents.itemDescript);
-        Debug.Log(dialogText.text);
+        //Debug.Log(contents.itemDescript);
+        //Debug.Log(dialogText.text);
         playerInverntory.AddItem(contents);
         playerInverntory.currentItem = contents;
         raiseItem.Raise();
