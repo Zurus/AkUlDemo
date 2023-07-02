@@ -13,13 +13,18 @@ public enum EnemyState
 
 public class Enemy : MonoBehaviour
 {
+    [Header("State Machine")]
     public EnemyState currentState;
+    [Header("Enemy Stats")]
     public FloatValue maxHealth;
     public float health;
     public string enemyName;
     public int baseAttack;
     public float moveSpeed;
+    [Header("Death effect")]
+    private float deathEffectDelay = 1f;
     public GameObject deathEffect;
+
 
     private void Awake()
     {
@@ -31,7 +36,6 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-
             //this.gameObject.SetActive(false);
             //todo: изучить пул объектов https://www.youtube.com/@NightTrainCode/videos
             DeathEffect();
@@ -46,7 +50,7 @@ public class Enemy : MonoBehaviour
         if (deathEffect != null)
         {
             GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
-            Destroy(effect, 1f);
+            Destroy(effect, deathEffectDelay);
         }
     }
 
