@@ -21,14 +21,25 @@ public class Enemy : MonoBehaviour
     public string enemyName;
     public int baseAttack;
     public float moveSpeed;
+    public Vector2 homePosition;
+
     [Header("Death effect")]
     private float deathEffectDelay = 1f;
     public GameObject deathEffect;
+    public LootTable thisLoot;
+
+    [Header("Death Signal")]
+    public Signal roomSignal;
 
 
     private void Awake()
     {
         health = maxHealth.initialValue;
+    }
+
+    private void OnEnable()
+    {
+        transform.position = homePosition;
     }
 
     private void TakeDamage(float damage)
@@ -39,6 +50,11 @@ public class Enemy : MonoBehaviour
             //this.gameObject.SetActive(false);
             //todo: изучить пул объектов https://www.youtube.com/@NightTrainCode/videos
             DeathEffect();
+            MakeLoot();
+            if (roomSignal != null)
+            {
+                roomSignal.Raise();
+            }
             this.gameObject.SetActive(false);
             //Destroy(gameObject, 2f);
             
@@ -51,6 +67,18 @@ public class Enemy : MonoBehaviour
         {
             GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(effect, deathEffectDelay);
+        }
+    }
+
+    private void MakeLoot()
+    {
+        if (thisLoot != null)
+        {
+            Powerup current = thisLoot.lootsPowerup();
+            if (current != null)
+            {
+                Instantiate(current.gameObject, transform.position, Quaternion.identity);
+            }
         }
     }
 

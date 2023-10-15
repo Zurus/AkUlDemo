@@ -10,9 +10,9 @@ public class SceneTransition : MonoBehaviour
     public Vector2 playerPosition;
     public VectorValue playerStorage;
     public VectorValue cameraMin;
-    public VectorValue CameraMax;
-    //public Vector2 cameraNewMax;
-    //public Vector2 cameraNewMin;
+    public VectorValue cameraMax;
+    public Vector2 cameraNewMax;
+    public Vector2 cameraNewMin;
 
 
     [Header("Transition Vars")]
@@ -56,7 +56,13 @@ public class SceneTransition : MonoBehaviour
 
     public void ResetCameraBounds()
     {
-        //cameraMin.initialValue = cameraNewMin;
-        //CameraMax.initialValue = cameraNewMax;
+        //todo: удалить
+        cameraMin.initialValue = cameraNewMin;
+        cameraMax.initialValue = cameraNewMax;
+
+        //Debug.Log("минимальное"+cameraMin.initialValue);
+        //Debug.Log("максимальное"+cameraMax.initialValue);
+
+        //cameraMin.initialValue.ToString
     }
 }

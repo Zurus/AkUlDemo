@@ -26,6 +26,7 @@ public class Door : Interactable
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+
             if (playerInRange && thisDoorType == DoorType.key)
             {
                 if (playerInventory.numberOfKeys>0)

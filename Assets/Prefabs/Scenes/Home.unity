@@ -5283,12 +5283,12 @@ PrefabInstance:
     - target: {fileID: 75204676, guid: d408fbc9b7ca3ef4bbe9047b459e34ba, type: 3}
       propertyPath: cameraMax
       value: 
-      objectReference: {fileID: 11400000, guid: d7c115110f1b3cd49b023f024f891282,
+      objectReference: {fileID: 11400000, guid: 1b422f48989dabe4ea017e5b9d37b58e,
         type: 2}
     - target: {fileID: 75204676, guid: d408fbc9b7ca3ef4bbe9047b459e34ba, type: 3}
       propertyPath: cameraMin
       value: 
-      objectReference: {fileID: 11400000, guid: 86406807d7972ed478989265057a4167,
+      objectReference: {fileID: 11400000, guid: 7db8ce9ed9669474899854e65767f6a3,
         type: 2}
     - target: {fileID: 75204676, guid: d408fbc9b7ca3ef4bbe9047b459e34ba, type: 3}
       propertyPath: sceneToLoad

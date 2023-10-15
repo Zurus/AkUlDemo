@@ -2,12 +2,14 @@
 
 public class Log : Enemy
 {
+    public Rigidbody2D rigidbody2;
 
+    [Header("Target Variables")]
     public Transform target;
     public float chaseRadius;
     public float attackRadius;
-    public Transform homePosition;
-    public Rigidbody2D rigidbody2;
+
+    [Header("Animator")]
     public Animator anim;
 
     // Start is called before the first frame update
@@ -80,7 +82,7 @@ public class Log : Enemy
     }
 
 
-    private void ChangeState(EnemyState newState)
+    protected void ChangeState(EnemyState newState)
     {
         if (currentState != newState)
         {
